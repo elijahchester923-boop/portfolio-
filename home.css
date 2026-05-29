@@ -1,0 +1,393 @@
+/* ============================================================
+   home.css — Mr. Ran Portfolio
+   Banner · About Brief · Best Work · Skills · Achievements
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   HERO CAROUSEL / SLIDING BANNER
+══════════════════════════════════════ */
+#heroBanner {
+  margin-top: 60px;
+}
+
+.carousel-item {
+  height:     100vh;
+  min-height: 560px;
+  position:   relative;
+  overflow:   hidden;
+}
+
+/* Each slide background layer */
+.slide-bg {
+  position:            absolute;
+  inset:               0;
+  background-size:     cover;
+  background-position: center;
+}
+
+.slide-bg-1 {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1f1500 50%, #2d1f00 100%);
+}
+
+.slide-bg-2 {
+  background: linear-gradient(135deg, #0d0019 0%, #150028 50%, #001428 100%);
+}
+
+.slide-bg-3 {
+  background: linear-gradient(135deg, #001400 0%, #001428 50%, #0d0d0d 100%);
+}
+
+/* Gold grid overlay on every slide */
+.slide-grid-overlay {
+  position:         absolute;
+  inset:            0;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Caption positioning */
+.carousel-caption {
+  position:  absolute;
+  bottom:    auto;
+  top:       50%;
+  transform: translateY(-50%);
+  left:      0;
+  right:     0;
+  padding:   2rem;
+  text-align: center;
+}
+
+/* Slide badge */
+.slide-tag {
+  display:        inline-block;
+  font-size:      0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color:          var(--clr-gold);
+  border:         1px solid var(--clr-gold);
+  padding:        0.3rem 1.2rem;
+  margin-bottom:  1.2rem;
+  animation:      slideTagIn 0.7s ease both;
+}
+
+/* Slide main heading */
+.slide-headline {
+  font-family:    var(--ff-display);
+  font-size:      clamp(3.5rem, 9vw, 8rem);
+  line-height:    0.9;
+  color:          var(--clr-white);
+  letter-spacing: 0.02em;
+  animation:      slideHeadIn 0.7s ease 0.15s both;
+}
+
+.slide-headline em {
+  font-family: var(--ff-serif);
+  font-style:  italic;
+  color:       var(--clr-gold);
+}
+
+/* Slide subtext */
+.slide-sub {
+  font-size:      0.95rem;
+  color:          rgba(255, 255, 255, 0.48);
+  font-weight:    300;
+  margin-top:     1rem;
+  letter-spacing: 0.06em;
+  animation:      slideSubIn 0.7s ease 0.3s both;
+}
+
+@keyframes slideTagIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideHeadIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideSubIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bootstrap carousel controls — custom */
+.carousel-control-prev,
+.carousel-control-next {
+  width:   54px;
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(201, 168, 76, 0.28);
+  border-radius:    0;
+  padding:          1.5rem;
+  background-size:  38%;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: var(--clr-gold);
+}
+
+.carousel-indicators [data-bs-target] {
+  width:            30px;
+  height:           3px;
+  border-radius:    0;
+  opacity:          0.4;
+  background-color: var(--clr-gold);
+  transition:       width 0.3s, opacity 0.3s;
+  border:           none;
+}
+
+.carousel-indicators .active {
+  width:   52px;
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   ABOUT BRIEF SECTION
+══════════════════════════════════════ */
+.about-brief-section {
+  padding: 6rem 0;
+}
+
+/* Portrait frame */
+.portrait-wrap {
+  position:  relative;
+  max-width: 360px;
+  margin:    0 auto;
+}
+
+.portrait-border-dec {
+  position:   absolute;
+  top:        -14px;
+  right:      -14px;
+  width:      100%;
+  height:     100%;
+  border:     2px solid var(--clr-gold);
+  z-index:    0;
+}
+
+.portrait-box {
+  position:        relative;
+  z-index:         1;
+  aspect-ratio:    3 / 4;
+  background:      linear-gradient(135deg, #1a1000, #2d1f00);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  overflow:        hidden;
+}
+
+.portrait-initials {
+  font-family:    var(--ff-display);
+  font-size:      7rem;
+  color:          rgba(201, 168, 76, 0.12);
+  letter-spacing: -0.05em;
+  user-select:    none;
+}
+
+.portrait-badge {
+  position:       absolute;
+  bottom:         0;
+  left:           0;
+  background:     var(--clr-gold);
+  color:          var(--clr-dark);
+  font-size:      0.68rem;
+  font-weight:    700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding:        0.45rem 1.2rem;
+}
+
+/* Body copy inside about brief */
+.about-brief-section .body-text {
+  font-size:   0.95rem;
+  line-height: 1.85;
+  color:       var(--clr-muted);
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   BEST WORK GRID
+══════════════════════════════════════ */
+.best-work-section {
+  padding: 0 0 6rem;
+}
+
+/* Individual work card */
+.work-card {
+  position:   relative;
+  overflow:   hidden;
+  cursor:     pointer;
+}
+
+.work-card-inner {
+  aspect-ratio:    4 / 3;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       3rem;
+  transition:      transform 0.5s ease;
+}
+
+.work-card:hover .work-card-inner {
+  transform: scale(1.06);
+}
+
+/* Hover overlay */
+.work-overlay {
+  position:        absolute;
+  inset:           0;
+  background:      rgba(13, 13, 13, 0.82);
+  opacity:         0;
+  transition:      opacity 0.35s ease;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             0.4rem;
+}
+
+.work-card:hover .work-overlay {
+  opacity: 1;
+}
+
+.work-overlay-title {
+  font-family:    var(--ff-display);
+  font-size:      1.3rem;
+  color:          var(--clr-white);
+  letter-spacing: 0.05em;
+}
+
+.work-overlay-cat {
+  font-size:      0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--clr-gold);
+}
+
+/* Work card background gradients */
+.bg-w1 { background: linear-gradient(135deg, #1a0d2e, #2e1a00); }
+.bg-w2 { background: linear-gradient(135deg, #002e1a, #001428); }
+.bg-w3 { background: linear-gradient(135deg, #2e0d00, #1a0028); }
+.bg-w4 { background: linear-gradient(135deg, #0d1f2e, #2e2800); }
+.bg-w5 { background: linear-gradient(135deg, #1a2800, #280014); }
+.bg-w6 { background: linear-gradient(135deg, #280a00, #0a1a28); }
+
+/* ══════════════════════════════════════
+   TECHNICAL SKILLS SECTION
+══════════════════════════════════════ */
+.skills-section {
+  padding: 6rem 0;
+}
+
+/* Skill bar row */
+.skill-row {
+  margin-bottom: 1.6rem;
+}
+
+.skill-bar-label {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  margin-bottom:   0.4rem;
+}
+
+.skill-bar-name {
+  font-size:      0.72rem;
+  font-weight:    600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--clr-light);
+}
+
+.skill-bar-pct {
+  font-family: var(--ff-display);
+  font-size:   1.05rem;
+  color:       var(--clr-gold);
+}
+
+/* Track */
+.skill-track {
+  height:     3px;
+  background: rgba(245, 240, 232, 0.1);
+}
+
+/* Fill — animated via JS */
+.skill-fill {
+  height:     3px;
+  background: linear-gradient(90deg, var(--clr-gold), var(--clr-gold2));
+  width:      0;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ══════════════════════════════════════
+   ACHIEVEMENTS SECTION
+══════════════════════════════════════ */
+.achievements-section {
+  padding: 6rem 0;
+}
+
+/* Individual achievement card */
+.ach-card {
+  border:     1px solid var(--clr-border);
+  padding:    2.2rem 1.8rem;
+  height:     100%;
+  background: var(--clr-cream);
+  position:   relative;
+  transition: var(--transition);
+}
+
+.ach-card:hover {
+  border-color: var(--clr-gold);
+  transform:    translateY(-5px);
+  box-shadow:   var(--shadow-gold);
+}
+
+/* Decorative background number */
+.ach-card-num {
+  position:    absolute;
+  top:         1rem;
+  right:       1.2rem;
+  font-family: var(--ff-display);
+  font-size:   3.2rem;
+  color:       rgba(201, 168, 76, 0.1);
+  line-height: 1;
+}
+
+.ach-card-icon {
+  font-size:     1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.ach-card-title {
+  font-family:    var(--ff-display);
+  font-size:      1.15rem;
+  letter-spacing: 0.04em;
+  margin-bottom:  0.4rem;
+}
+
+.ach-card-desc {
+  font-size:   0.83rem;
+  color:       var(--clr-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   HOME — RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 991.98px) {
+  .carousel-item   { height: 80vh; }
+  .portrait-wrap   { max-width: 280px; }
+}
+
+@media (max-width: 767.98px) {
+  .carousel-item   { height: 90vh; }
+  .slide-headline  { font-size: 3rem; }
+  .portrait-wrap   { max-width: 240px; margin-bottom: 2rem; }
+}

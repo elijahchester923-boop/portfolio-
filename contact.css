@@ -1,0 +1,301 @@
+/* ============================================================
+   contact.css — Mr. Ran Portfolio
+   Split Layout · Contact Info · Social Links · Form
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   CONTACT PAGE WRAPPER
+══════════════════════════════════════ */
+.contact-page-wrapper {
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+  display:    flex;
+  flex-direction: column;
+}
+
+.contact-row-fill {
+  flex: 1;
+}
+
+/* ══════════════════════════════════════
+   LEFT DARK COLUMN
+══════════════════════════════════════ */
+.contact-dark-col {
+  background:  var(--clr-dark);
+  color:       var(--clr-light);
+  padding:     5rem 3.5rem;
+  min-height:  100%;
+  position:    relative;
+  overflow:    hidden;
+}
+
+/* Decorative rings */
+.contact-dark-col::before {
+  content:       '';
+  position:      absolute;
+  bottom:        -8rem;
+  left:          -8rem;
+  width:         32rem;
+  height:        32rem;
+  border-radius: 50%;
+  border:        1px solid rgba(201, 168, 76, 0.07);
+}
+
+.contact-dark-col::after {
+  content:       '';
+  position:      absolute;
+  bottom:        -12rem;
+  left:          -12rem;
+  width:         44rem;
+  height:        44rem;
+  border-radius: 50%;
+  border:        1px solid rgba(201, 168, 76, 0.04);
+}
+
+/* Heading */
+.contact-dark-col .contact-heading {
+  font-family:    var(--ff-display);
+  font-size:      clamp(2.5rem, 5vw, 4.5rem);
+  line-height:    0.92;
+  margin-bottom:  1.4rem;
+  position:       relative;
+  z-index:        1;
+}
+
+.contact-dark-col .contact-heading em {
+  font-family: var(--ff-serif);
+  font-style:  italic;
+  color:       var(--clr-gold);
+}
+
+/* Intro paragraph */
+.contact-dark-col .contact-intro {
+  font-size:    0.93rem;
+  color:        rgba(245, 240, 232, 0.5);
+  line-height:  1.8;
+  max-width:    380px;
+  margin-bottom: 2.5rem;
+  font-weight:  300;
+  position:     relative;
+  z-index:      1;
+}
+
+/* ══════════════════════════════════════
+   CONTACT INFO ITEMS
+══════════════════════════════════════ */
+.contact-info-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            1.3rem;
+  position:       relative;
+  z-index:        1;
+  margin-bottom:  2.5rem;
+}
+
+.contact-info-item {
+  display:     flex;
+  align-items: flex-start;
+  gap:         1.1rem;
+}
+
+/* Square icon box */
+.contact-info-icon {
+  width:           40px;
+  height:          40px;
+  border:          1px solid var(--clr-border);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1rem;
+  flex-shrink:     0;
+  color:           var(--clr-gold);
+  transition:      var(--transition);
+}
+
+.contact-info-icon:hover {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+/* Label + value */
+.contact-info-text {}
+
+.contact-info-label {
+  font-size:      0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--clr-gold);
+  margin-bottom:  0.1rem;
+}
+
+.contact-info-val {
+  font-size: 0.85rem;
+  color:     rgba(245, 240, 232, 0.75);
+}
+
+.contact-info-val a {
+  color:      rgba(245, 240, 232, 0.75);
+  transition: var(--transition);
+}
+
+.contact-info-val a:hover {
+  color: var(--clr-gold);
+}
+
+/* ══════════════════════════════════════
+   SOCIAL MEDIA LINKS
+══════════════════════════════════════ */
+.social-links {
+  display:  flex;
+  gap:      0.6rem;
+  position: relative;
+  z-index:  1;
+}
+
+.social-link-btn {
+  width:           40px;
+  height:          40px;
+  border:          1px solid rgba(245, 240, 232, 0.18);
+  background:      transparent;
+  color:           rgba(245, 240, 232, 0.5);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1rem;
+  text-decoration: none;
+  transition:      var(--transition);
+}
+
+.social-link-btn:hover {
+  border-color: var(--clr-gold);
+  color:        var(--clr-gold);
+  background:   rgba(201, 168, 76, 0.06);
+}
+
+/* Social label — optional text below icons */
+.social-label {
+  font-size:      0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.35);
+  text-align:     center;
+  margin-top:     0.4rem;
+}
+
+/* ══════════════════════════════════════
+   RIGHT FORM COLUMN
+══════════════════════════════════════ */
+.contact-form-col {
+  background: var(--clr-light);
+  padding:    5rem 4rem;
+  display:    flex;
+  align-items: center;
+}
+
+.contact-form-inner {
+  width: 100%;
+}
+
+.contact-form-heading {
+  font-family:    var(--ff-display);
+  font-size:      2rem;
+  letter-spacing: 0.05em;
+  margin-bottom:  2.2rem;
+}
+
+/* ══════════════════════════════════════
+   CONTACT FORM — Bootstrap restyled
+══════════════════════════════════════ */
+.mr-form .form-label {
+  font-size:      0.62rem;
+  font-weight:    700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--clr-muted);
+  margin-bottom:  0.4rem;
+}
+
+.mr-form .form-control {
+  border:        none;
+  border-bottom: 1.5px solid rgba(13, 13, 13, 0.15);
+  border-radius: 0;
+  background:    transparent;
+  padding:       0.65rem 0;
+  font-family:   var(--ff-body);
+  font-size:     0.93rem;
+  color:         var(--clr-dark);
+  box-shadow:    none !important;
+  transition:    border-color 0.3s ease;
+}
+
+.mr-form .form-control:focus {
+  border-bottom-color: var(--clr-gold);
+  background:          transparent;
+  outline:             none;
+}
+
+.mr-form .form-control::placeholder {
+  color: rgba(13, 13, 13, 0.3);
+}
+
+.mr-form textarea.form-control {
+  height:     130px;
+  resize:     none;
+  padding-top: 0.65rem;
+}
+
+/* Form select (service type dropdown) */
+.mr-form .form-select {
+  border:        none;
+  border-bottom: 1.5px solid rgba(13, 13, 13, 0.15);
+  border-radius: 0;
+  background:    transparent;
+  padding:       0.65rem 0;
+  font-family:   var(--ff-body);
+  font-size:     0.93rem;
+  color:         var(--clr-dark);
+  box-shadow:    none !important;
+  cursor:        pointer;
+  transition:    border-color 0.3s;
+}
+
+.mr-form .form-select:focus {
+  border-bottom-color: var(--clr-gold);
+  outline:             none;
+}
+
+/* Success message */
+.form-success-msg {
+  display:        none;
+  color:          var(--clr-gold);
+  font-size:      0.82rem;
+  font-weight:    700;
+  letter-spacing: 0.06em;
+  margin-top:     1rem;
+}
+
+/* ══════════════════════════════════════
+   CONTACT — RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 991.98px) {
+  .contact-dark-col {
+    padding: 4rem 2.5rem;
+  }
+
+  .contact-form-col {
+    padding: 4rem 2.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-dark-col {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .contact-form-col {
+    padding: 3rem 1.5rem;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+}

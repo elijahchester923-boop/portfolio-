@@ -1,0 +1,258 @@
+/* ============================================================
+   about.css — Mr. Ran Portfolio
+   Hero · Detail · Academics · Technical · Experience · Achievements · Sidebar
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   ABOUT HERO
+══════════════════════════════════════ */
+.about-hero-section {
+  background:  var(--clr-dark);
+  color:       var(--clr-light);
+  padding:     8rem 0 5rem;
+  position:    relative;
+  overflow:    hidden;
+  margin-top:  60px;
+}
+
+/* Giant decorative watermark */
+.about-hero-section::before {
+  content:        'RAN';
+  position:       absolute;
+  right:          -1rem;
+  top:            50%;
+  transform:      translateY(-50%);
+  font-family:    var(--ff-display);
+  font-size:      20vw;
+  color:          rgba(255, 255, 255, 0.03);
+  line-height:    1;
+  pointer-events: none;
+  user-select:    none;
+}
+
+.about-hero-section .sec-title {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+}
+
+.about-hero-section .hero-body {
+  font-size:   1rem;
+  max-width:   520px;
+  line-height: 1.85;
+  color:       rgba(245, 240, 232, 0.55);
+  font-weight: 300;
+  margin-top:  1rem;
+}
+
+/* ══════════════════════════════════════
+   DETAIL ABOUT ME
+══════════════════════════════════════ */
+.about-detail-section {
+  padding: 6rem 0;
+}
+
+.about-detail-section .body-text {
+  font-size:   0.93rem;
+  line-height: 1.85;
+  color:       var(--clr-muted);
+  font-weight: 300;
+}
+
+/* Shared heading style for all about sub-sections */
+.about-sub-heading {
+  font-family:    var(--ff-display);
+  font-size:      1.7rem;
+  letter-spacing: 0.05em;
+  border-bottom:  1px solid var(--clr-border);
+  padding-bottom: 0.7rem;
+  margin-bottom:  1.5rem;
+}
+
+/* ══════════════════════════════════════
+   TIMELINE (used in Academics, Experience, Achievements)
+══════════════════════════════════════ */
+.timeline {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+}
+
+.timeline-item {
+  display:   flex;
+  gap:       1.2rem;
+  padding-bottom: 2rem;
+  position:  relative;
+}
+
+/* Vertical line connector */
+.timeline-item::before {
+  content:    '';
+  position:   absolute;
+  left:       4px;
+  top:        18px;
+  width:      1px;
+  bottom:     0;
+  background: var(--clr-border);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* Dot */
+.timeline-dot {
+  width:       10px;
+  height:      10px;
+  border-radius: 50%;
+  background:  var(--clr-gold);
+  flex-shrink: 0;
+  margin-top:  5px;
+}
+
+/* Text content */
+.timeline-year {
+  font-size:      0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--clr-gold);
+  font-weight:    700;
+  margin-bottom:  0.15rem;
+}
+
+.timeline-title {
+  font-size:     0.92rem;
+  font-weight:   600;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-desc {
+  font-size:   0.82rem;
+  color:       var(--clr-muted);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════
+   ACADEMICS SECTION
+══════════════════════════════════════ */
+.academics-section {
+  padding: 0 0 3rem;
+}
+
+/* ══════════════════════════════════════
+   TECHNICAL QUALIFICATION SECTION
+══════════════════════════════════════ */
+.technical-section {
+  padding: 0 0 3rem;
+}
+
+/* ══════════════════════════════════════
+   FREELANCE / PROJECT EXPERIENCE SECTION
+══════════════════════════════════════ */
+.experience-section {
+  padding: 0 0 3rem;
+}
+
+/* Experience badge */
+.exp-badge {
+  display:        inline-block;
+  background:     var(--clr-gold);
+  color:          var(--clr-dark);
+  font-size:      0.62rem;
+  font-weight:    700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding:        0.25rem 0.8rem;
+  margin-bottom:  0.5rem;
+}
+
+/* ══════════════════════════════════════
+   ACHIEVEMENTS SECTION (About Page)
+══════════════════════════════════════ */
+.about-achievements-section {
+  padding: 0 0 3rem;
+}
+
+/* ══════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════ */
+.about-sidebar {
+  position: sticky;
+  top:      90px;
+}
+
+.sidebar-card {
+  border:        1px solid var(--clr-border);
+  padding:       1.6rem;
+  margin-bottom: 1.4rem;
+  background:    var(--clr-cream);
+}
+
+.sidebar-card-dark {
+  background:  var(--clr-dark);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.sidebar-card-title {
+  font-family:    var(--ff-display);
+  font-size:      1rem;
+  letter-spacing: 0.08em;
+  margin-bottom:  1rem;
+  padding-bottom: 0.6rem;
+  border-bottom:  1px solid var(--clr-border);
+}
+
+.sidebar-card-dark .sidebar-card-title {
+  color:        var(--clr-gold);
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+/* Info rows inside sidebar */
+.info-row {
+  display:       flex;
+  gap:           0.6rem;
+  margin-bottom: 0.55rem;
+  font-size:     0.83rem;
+  align-items:   flex-start;
+}
+
+.info-key {
+  color:     var(--clr-muted);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.info-val {
+  font-weight: 600;
+  color:       var(--clr-dark);
+}
+
+/* Awards list inside dark sidebar card */
+.sidebar-award-item {
+  font-size:     0.82rem;
+  color:         rgba(245, 240, 232, 0.65);
+  margin-bottom: 0.5rem;
+  line-height:   1.5;
+}
+
+/* ══════════════════════════════════════
+   ABOUT — RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 991.98px) {
+  .about-sidebar {
+    position: static;
+    margin-top: 3rem;
+  }
+
+  .about-hero-section {
+    padding: 6rem 0 4rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-hero-section {
+    padding: 5rem 0 3rem;
+  }
+
+  .about-hero-section::before {
+    font-size: 28vw;
+  }
+}

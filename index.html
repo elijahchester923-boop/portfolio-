@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     index.html — Mr. Ran Portfolio | HOME PAGE
+     Bootstrap 5.3 + Embedded CSS
+     Sections: Banner · About Brief · Best Work · Skills · Achievements
+   ============================================================ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr. Ran | Home — Graphic Designer & Animator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+
+  <style>
+    /* ══════════════════════════════
+       CSS VARIABLES
+    ══════════════════════════════ */
+    :root {
+      --dark:    #0d0d0d;
+      --mid:     #1a1a1a;
+      --gold:    #c9a84c;
+      --gold2:   #e8c96a;
+      --light:   #f5f0e8;
+      --cream:   #faf6ed;
+      --muted:   #888880;
+      --border:  rgba(201,168,76,0.22);
+      --ff-d:    'Bebas Neue', sans-serif;
+      --ff-s:    'Playfair Display', serif;
+      --ff-b:    'DM Sans', sans-serif;
+      --tr:      all 0.3s ease;
+    }
+
+    /* ══════════════════════════════
+       BASE
+    ══════════════════════════════ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--ff-b); background:var(--cream); color:var(--dark); overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; transition:var(--tr); }
+
+    /* ══════════════════════════════
+       NAVBAR
+    ══════════════════════════════ */
+    #mainNav {
+      background: rgba(13,13,13,0.97) !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 0;
+    }
+    .navbar-brand {
+      font-family: var(--ff-d);
+      font-size: 1.75rem;
+      letter-spacing: 0.08em;
+      color: #fff !important;
+    }
+    .navbar-brand span { color: var(--gold); }
+    .navbar-nav .nav-link {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6) !important;
+      padding: 0.5rem 1.1rem !important;
+      position: relative;
+      transition: var(--tr);
+    }
+    .navbar-nav .nav-link::after {
+      content:''; position:absolute; bottom:0; left:1.1rem; right:1.1rem;
+      height:2px; background:var(--gold);
+      transform:scaleX(0); transition:transform 0.3s;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.here { color:var(--gold) !important; }
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.here::after { transform:scaleX(1); }
+    .navbar-toggler { border-color:var(--border) !important; }
+    .navbar-toggler-icon { filter:invert(1); }
+
+    /* ══════════════════════════════
+       SECTION 1 — SLIDING BANNER
+    ══════════════════════════════ */
+    #heroBanner { margin-top:60px; }
+
+    .carousel-item {
+      height: 100vh;
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .slide-bg-1 { background: linear-gradient(135deg,#0d0d0d 0%,#1f1500 50%,#2d1f00 100%); }
+    .slide-bg-2 { background: linear-gradient(135deg,#0d0019 0%,#150028 50%,#001428 100%); }
+    .slide-bg-3 { background: linear-gradient(135deg,#001400 0%,#001428 50%,#0d0d0d 100%); }
+
+    .slide-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .carousel-caption {
+      bottom:auto; top:50%; transform:translateY(-50%);
+      left:0; right:0; padding:2rem; text-align:center;
+    }
+    .slide-tag {
+      display:inline-block;
+      font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase;
+      color:var(--gold); border:1px solid var(--gold);
+      padding:0.3rem 1.2rem; margin-bottom:1.2rem;
+      animation: fadeUp 0.7s ease both;
+    }
+    .slide-headline {
+      font-family:var(--ff-d);
+      font-size: clamp(3.5rem,9vw,8rem);
+      line-height:0.9; color:#fff;
+      animation: fadeUp 0.7s ease 0.15s both;
+    }
+    .slide-headline em { font-family:var(--ff-s); font-style:italic; color:var(--gold); }
+    .slide-sub {
+      font-size:0.95rem; color:rgba(255,255,255,0.48);
+      font-weight:300; margin-top:1rem; letter-spacing:0.06em;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(28px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .carousel-control-prev,
+    .carousel-control-next { width:54px; opacity:1; }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color:rgba(201,168,76,0.28);
+      border-radius:0; padding:1.5rem; background-size:38%;
+    }
+    .carousel-indicators [data-bs-target] {
+      width:30px; height:3px; border-radius:0;
+      opacity:0.4; background-color:var(--gold);
+      transition:width 0.3s, opacity 0.3s; border:none;
+    }
+    .carousel-indicators .active { width:52px; opacity:1; }
+
+    /* ── MARQUEE ── */
+    .marquee-strip { background:var(--gold); padding:0.65rem 0; overflow:hidden; }
+    .marquee-inner { display:flex; white-space:nowrap; animation:marquee 22s linear infinite; }
+    .marquee-inner span { font-family:var(--ff-d); font-size:1rem; letter-spacing:0.12em; color:var(--dark); padding:0 2rem; }
+    .marquee-inner span::after { content:' ✦ '; margin-left:2rem; }
+    @keyframes marquee {
+      from { transform:translateX(0); }
+      to   { transform:translateX(-50%); }
+    }
+
+    /* ══════════════════════════════
+       SHARED UTILITIES
+    ══════════════════════════════ */
+    .sec-label {
+      font-size:0.65rem; font-weight:700; letter-spacing:0.3em;
+      text-transform:uppercase; color:var(--gold);
+      display:flex; align-items:center; gap:0.8rem; margin-bottom:0.7rem;
+    }
+    .sec-label::before {
+      content:''; display:block; width:28px; height:1px;
+      background:var(--gold); flex-shrink:0;
+    }
+    .sec-title {
+      font-family:var(--ff-d);
+      font-size: clamp(2rem,5vw,3.8rem);
+      line-height:1; letter-spacing:0.02em; margin-bottom:1rem;
+    }
+    .sec-title em { font-family:var(--ff-s); font-style:italic; color:var(--gold); }
+    .sec-title span { color:var(--gold); }
+
+    .stat-box { text-align:center; padding:1.2rem 0.8rem; border:1px solid var(--border); transition:var(--tr); }
+    .stat-box:hover { border-color:var(--gold); background:rgba(201,168,76,0.04); }
+    .stat-num { font-family:var(--ff-d); font-size:2.5rem; color:var(--gold); line-height:1; }
+    .stat-label { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-top:0.2rem; }
+
+    /* ══════════════════════════════
+       SECTION 2 — ABOUT BRIEF
+    ══════════════════════════════ */
+    .about-brief-section { padding:6rem 0; }
+    .portrait-wrap { position:relative; max-width:360px; margin:0 auto; }
+    .portrait-border-dec {
+      position:absolute; top:-14px; right:-14px;
+      width:100%; height:100%; border:2px solid var(--gold); z-index:0;
+    }
+    .portrait-box {
+      position:relative; z-index:1; aspect-ratio:3/4;
+      background:linear-gradient(135deg,#1a1000,#2d1f00);
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .portrait-initials { font-family:var(--ff-d); font-size:7rem; color:rgba(201,168,76,0.12); letter-spacing:-0.05em; user-select:none; }
+    .portrait-badge {
+      position:absolute; bottom:0; left:0;
+      background:var(--gold); color:var(--dark);
+      font-size:0.68rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:0.45rem 1.2rem;
+    }
+    .body-text { font-size:0.95rem; line-height:1.85; color:var(--muted); font-weight:300; }
+
+    /* ══════════════════════════════
+       SECTION 3 — BEST WORK
+    ══════════════════════════════ */
+    .best-work-section { padding:0 0 6rem; }
+    .work-card { position:relative; overflow:hidden; cursor:pointer; }
+    .work-card-inner {
+      aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+      font-size:3rem; transition:transform 0.5s ease;
+    }
+    .work-card:hover .work-card-inner { transform:scale(1.06); }
+    .work-overlay {
+      position:absolute; inset:0; background:rgba(13,13,13,0.82);
+      opacity:0; transition:opacity 0.35s;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
+    }
+    .work-card:hover .work-overlay { opacity:1; }
+    .work-overlay-title { font-family:var(--ff-d); font-size:1.3rem; color:#fff; letter-spacing:0.05em; }
+    .work-overlay-cat { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); }
+    .bg-w1 { background:linear-gradient(135deg,#1a0d2e,#2e1a00); }
+    .bg-w2 { background:linear-gradient(135deg,#002e1a,#001428); }
+    .bg-w3 { background:linear-gradient(135deg,#2e0d00,#1a0028); }
+    .bg-w4 { background:linear-gradient(135deg,#0d1f2e,#2e2800); }
+    .bg-w5 { background:linear-gradient(135deg,#1a2800,#280014); }
+    .bg-w6 { background:linear-gradient(135deg,#280a00,#0a1a28); }
+
+    /* ══════════════════════════════
+       SECTION 4 — SKILLS
+    ══════════════════════════════ */
+    .skills-section { padding:6rem 0; background:var(--dark); color:var(--light); }
+    .skill-row { margin-bottom:1.6rem; }
+    .skill-bar-label { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.4rem; }
+    .skill-bar-name { font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--light); }
+    .skill-bar-pct { font-family:var(--ff-d); font-size:1.05rem; color:var(--gold); }
+    .skill-track { height:3px; background:rgba(245,240,232,0.1); }
+    .skill-fill { height:3px; background:linear-gradient(90deg,var(--gold),var(--gold2)); width:0; transition:width 1.4s cubic-bezier(0.4,0,0.2,1); }
+
+    /* ══════════════════════════════
+       SECTION 5 — ACHIEVEMENTS
+    ══════════════════════════════ */
+    .achievements-section { padding:6rem 0; }
+    .ach-card { border:1px solid var(--border); padding:2.2rem 1.8rem; height:100%; background:var(--cream); position:relative; transition:var(--tr); }
+    .ach-card:hover { border-color:var(--gold); transform:translateY(-5px); box-shadow:0 8px 28px rgba(201,168,76,0.12); }
+    .ach-card-num { position:absolute; top:1rem; right:1.2rem; font-family:var(--ff-d); font-size:3.2rem; color:rgba(201,168,76,0.1); line-height:1; }
+    .ach-card-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+    .ach-card-title { font-family:var(--ff-d); font-size:1.15rem; letter-spacing:0.04em; margin-bottom:0.4rem; }
+    .ach-card-desc { font-size:0.83rem; color:var(--muted); line-height:1.6; }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      background:var(--dark); color:rgba(245,240,232,0.35);
+      text-align:center; padding:1.5rem;
+      font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    }
+    footer span { color:var(--gold); }
+
+    /* ══════════════════════════════
+       REVEAL ANIMATION
+    ══════════════════════════════ */
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:991.98px) { .carousel-item { height:80vh; } .portrait-wrap { max-width:280px; } }
+    @media (max-width:767.98px) { .carousel-item { height:90vh; } .slide-headline { font-size:3rem; } }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span>MR.AARYAN KAPOOR&nbsp;</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link here"   href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link"        href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link"        href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link"        href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════
+     SECTION 1 — SLIDING BANNER
+══════════════════════════════ -->
+<div id="heroBanner" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroBanner" data-bs-slide-to="2"></button>
+  </div>
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <div class="slide-bg slide-bg-1"></div>
+      <div class="slide-grid"></div>
+      <div class="carousel-caption">
+        <div class="slide-tag">Visual Designer &amp; Animator</div>
+        <h1 class="slide-headline">I Make<br/><em>Brands</em><br/>Speak.</h1>
+        <p class="slide-sub">Motion &amp; Graphics that leave a lasting mark</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="slide-bg slide-bg-2"></div>
+      <div class="slide-grid"></div>
+      <div class="carousel-caption">
+        <div class="slide-tag">2D Animation &amp; VFX</div>
+        <h1 class="slide-headline">Motion Is<br/>My <em>Canvas.</em></h1>
+        <p class="slide-sub">Bringing stories to life — frame by frame</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="slide-bg slide-bg-3"></div>
+      <div class="slide-grid"></div>
+      <div class="carousel-caption">
+        <div class="slide-tag">Logo &amp; Brand Identity</div>
+        <h1 class="slide-headline">Design<br/>That <em>Endures.</em></h1>
+        <p class="slide-sub">Award-winning graphics for modern brands</p>
+      </div>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroBanner" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroBanner" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Marquee -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Adobe Illustrator</span><span>Photoshop</span><span>After Effects</span>
+    <span>Premiere Pro</span><span>InDesign</span><span>2D Animation</span>
+    <span>VFX</span><span>Logo Design</span><span>Motion Graphics</span>
+    <span>Adobe Illustrator</span><span>Photoshop</span><span>After Effects</span>
+    <span>Premiere Pro</span><span>InDesign</span><span>2D Animation</span>
+    <span>VFX</span><span>Logo Design</span><span>Motion Graphics</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SECTION 2 — ABOUT BRIEF
+══════════════════════════════ -->
+<section class="about-brief-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 reveal">
+        <div class="sec-label">About Me</div>
+        <h2 class="sec-title">Crafting <em>Visual</em><br/>Experiences</h2>
+        <p class="body-text mb-3">I'm AARYAN KAPOOR — a passionate graphic designer, 2D animator, and video editor with a sharp eye for aesthetics and a love for visual storytelling. From brand identities to motion graphics, I transform ideas into compelling visuals that resonate and inspire.</p>
+        <p class="body-text">Expert across the Adobe Creative Suite, I deliver polished, professional work that helps brands stand out in a crowded world.</p>
+        <div class="row g-3 mt-4">
+          <div class="col-3"><div class="stat-box"><div class="stat-num">5+</div><div class="stat-label">Skills</div></div></div>
+          <div class="col-3"><div class="stat-box"><div class="stat-num">1+</div><div class="stat-label">Clients</div></div></div>
+          <div class="col-3"><div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Awards</div></div></div>
+          <div class="col-3"><div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Passion</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal">
+        <div class="portrait-wrap">
+          <div class="portrait-border-dec"></div>
+          <div class="portrait-box">
+            <div class="portrait-initials"><img src="../../OneDrive/Desktop/revision/portfolio photo aaryan kapoor .jpeg" width="250" height="350" alt=""/></div>
+            <div class="portrait-badge">Mr. AARYAN KAPOOR  — Designer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 3 — MY BEST WORK
+══════════════════════════════ -->
+<section class="best-work-section">
+  <div class="container">
+    <div class="sec-label reveal">My Best Work</div>
+    <h2 class="sec-title reveal">Selected Projects</h2>
+    <div class="row g-2 mt-3 reveal">
+      <div class="col-md-4 col-6"><div class="work-card"><div class="work-card-inner bg-w1"><img src="../../OneDrive/Desktop/revision/versace logo design 4 page portfolio gopal sir.jpeg" width="1238" height="290" alt=""/></div><div class="work-overlay"><div class="work-overlay-title">VERSACE Brand Logo REDESIGN</div><div class="work-overlay-cat">Logo Design · 2026</div></div></div></div>
+     
+      <div class="col-md-4 col-6"><div class="work-card"><div class="work-card-inner bg-w3"><img src="../../OneDrive/Desktop/revision/character design 4 page portfolio gopal sir_1.png" width="216" height="290" alt=""/></div><div class="work-overlay"><div class="work-overlay-title">CHARACTER DESIGN&nbsp;</div><div class="work-overlay-cat">ILLUSTRATOR</div></div></div></div>
+      <div class="col-md-4 col-6"><div class="work-card"><div class="work-card-inner bg-w4"><img src="../../OneDrive/Desktop/revision/pokemon tracing .jpeg" width="300" height="300" alt=""/></div><div class="work-overlay"><div class="work-overlay-title">pokemon tracing </div><div class="work-overlay-cat"> ADOBE . ANIMATE </div></div></div></div>
+      <div class="col-md-4 col-6"><div class="work-card"><div class="work-card-inner bg-w5"><img src="../../OneDrive/Desktop/revision/magazine 4 page portfolio gopal sir.jpeg" width="1272" height="290" alt=""/></div><div class="work-overlay"><div class="work-overlay-title">MAGAZINE COVER&nbsp;&nbsp;</div><div class="work-overlay-cat">InDesign · Illustrator</div></div></div></div>
+     
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 4 — TECHNICAL SKILLS
+══════════════════════════════ -->
+<section class="skills-section">
+  <div class="container">
+    <div class="sec-label" style="color:var(--gold2);">Expertise</div>
+    <h2 class="sec-title mb-5">My Technical Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">Graphic Design</span><span class="skill-bar-pct">92%</span></div><div class="skill-track"><div class="skill-fill" data-pct="92"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">2D Animation</span><span class="skill-bar-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-pct="85"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">Video Editing</span><span class="skill-bar-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-pct="88"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">VFX</span><span class="skill-bar-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-pct="80"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">Adobe Illustrator</span><span class="skill-bar-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-pct="90"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">After Effects</span><span class="skill-bar-pct">83%</span></div><div class="skill-track"><div class="skill-fill" data-pct="83"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">Premiere Pro</span><span class="skill-bar-pct">87%</span></div><div class="skill-track"><div class="skill-fill" data-pct="87"></div></div></div></div>
+      <div class="col-md-6"><div class="skill-row"><div class="skill-bar-label"><span class="skill-bar-name">Photoshop</span><span class="skill-bar-pct">91%</span></div><div class="skill-track"><div class="skill-fill" data-pct="91"></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 5 — ACHIEVEMENTS
+══════════════════════════════ -->
+<section class="achievements-section">
+  <div class="container">
+    <div class="sec-label reveal">Recognition</div>
+    <h2 class="sec-title reveal">Achievements</h2>
+    <div class="row g-4 mt-2">
+      <div class="col-md-4 reveal">
+        <div class="ach-card">
+          <div class="ach-card-num">01</div>
+          <div class="ach-card-icon">🏆</div>
+          <div class="ach-card-title">Best Student Award</div>
+          <p class="ach-card-desc">Recognized for outstanding academic and creative performance among peers.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="ach-card">
+          <div class="ach-card-num">02</div>
+          <div class="ach-card-icon">🌟</div>
+          <div class="ach-card-title">Emerging Graphic Designer Award</div>
+          <p class="ach-card-desc">Honored as a rising talent in the field of graphic design and visual arts.</p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="ach-card">
+          <div class="ach-card-num">03</div>
+          <div class="ach-card-icon">🎨</div>
+          <div class="ach-card-title">Freelance Brand Project</div>
+          <p class="ach-card-desc">Designed the complete brand identity for ABCD Brand as a freelancer in 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Mr. Ran</span> — Visual Designer &amp; Animator &nbsp;|&nbsp; © 2026 All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Skill bar animation
+  function animateSkills() {
+    document.querySelectorAll('.skill-fill').forEach(function(f) {
+      setTimeout(function() { f.style.width = f.getAttribute('data-pct') + '%'; }, 200);
+    });
+  }
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  // Init
+  animateSkills();
+</script>
+</body>
+</html>
